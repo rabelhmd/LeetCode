@@ -1,10 +1,10 @@
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        unordered_map <int, bool> Mp;
+        unordered_set <int> St;
         for(auto x: nums) {
-            if(Mp.find(x) != Mp.end()) return true;
-            Mp[x] = true;
+            if(St.find(x) != St.end()) return true;
+            St.insert(x);
         }
         return false;
     }
