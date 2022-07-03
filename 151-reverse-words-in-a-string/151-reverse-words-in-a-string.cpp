@@ -1,11 +1,20 @@
 class Solution {
 public:
     
+    string getAns(vector <string> &v) {
+        string str = "";
+        for(int i = v.size()-1; i >= 0; i--) {
+            str += v[i];
+            str += (i > 0 ? " " : "");
+        }
+        return str;
+    }
+    
     string reverseWords(string s) {
         stringstream ss(s);
-        string ans, w;
-        while(ss >> w) ans.insert(0, w + " ");
-        if(ans.size() > 0) ans.pop_back();
-        return ans;
+        vector <string> v;
+        string w;
+        while(ss >> w) v.push_back(w);
+        return getAns(v);
     }
 };
