@@ -1,9 +1,12 @@
 class Solution {
 public:
     
-    int getAns(vector<int> &L, vector <int> &R, int len) {
+    int prefixSum[2*10004];
+    int suffixSum[2*10004];
+    
+    int getAns(int len) {
         int ans = 0;
-        for(int i = 0; i < len; i++) ans += max(L[i], R[i]);
+        for(int i = 0; i < len; i++) ans += max(prefixSum[i], suffixSum[i]);
         return ans;
     }
     
@@ -11,7 +14,9 @@ public:
         int len = ratings.size();
         if(len == 1) return 1;
         
-        vector<int> prefixSum(len, 1), suffixSum(len, 1);
+        for(int i = 0; i < len; i++) prefixSum[i] = 1;
+        for(int i = 0; i < len; i++) suffixSum[i] = 1;
+        
         for(int i = 1; i < len; i++) {
             if(ratings[i] > ratings[i-1]) {
                 prefixSum[i] = prefixSum[i-1] + 1;
@@ -24,6 +29,6 @@ public:
             }
         }
         
-        return getAns(prefixSum, suffixSum, len);
+        return getAns(len);
     }
 };
