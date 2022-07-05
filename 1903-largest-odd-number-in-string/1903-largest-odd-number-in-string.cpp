@@ -8,10 +8,12 @@ public:
             }
         }
         if(!flag) return "";
-        while(num.size()) {
-            int cur = num[num.size()-1] - '0';
+        int len = num.size();
+        while(len) {
+            int cur = num[len-1] - '0';
             if(cur & 1) return num;
             num.pop_back();
+            len--;
         }
         return num;
     }
