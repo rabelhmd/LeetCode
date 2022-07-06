@@ -6,26 +6,30 @@ using namespace std;
 class Solution {
   public:
   
-    long long int dp[1005][1005];
-  
-    long long coinChange(int S[], int len, int amount, int pos) {
+    long long int dp[1004][1004];
+
+    long long int getNumberOfWays(int coins[], int len, int amount, int pos) {
         if(amount == 0) return 1;
         if(pos >= len) return 0;
-        
-        long long &ret = dp[amount][pos];
+    
+        long long int &ret = dp[amount][pos];
         if(ret != -1) return ret;
-        
+    
         ret = 0;
-        if(amount - S[pos] >= 0) {
-            ret += coinChange(S, len, amount - S[pos], pos);
+        if(amount - coins[pos] >= 0) {
+            ret += getNumberOfWays(coins, len, amount - coins[pos], pos);
         }
-        ret += coinChange(S, len, amount, pos+1);
+        ret += getNumberOfWays(coins, len, amount, pos+1);
         return ret;
+    }
+
+    long long int numberOfWays(int S[], int len, int amount) {
+        memset(dp, -1, sizeof(dp));
+        return getNumberOfWays(S, len, amount, 0);
     }
   
     long long int count(int S[], int n, int amount) {
-        memset(dp, -1, sizeof(dp));
-        return coinChange(S, n, amount, 0);
+        return numberOfWays(S, n, amount);
     }
 };
 
