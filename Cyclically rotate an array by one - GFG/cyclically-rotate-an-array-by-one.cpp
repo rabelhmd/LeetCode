@@ -30,12 +30,9 @@ int main()
 
 void rotate(int arr[], int n) {
     if(n == 1) return;
-    int ans[n];
-    for(int i = 0; i < n; i++) ans[i] = arr[i];
-    
-    arr[0] = ans[n-1];;
-    arr[1] =  ans[0];;
-    for(int i = 1; i < n-1; i++) {
-        arr[i+1] = ans[i];
+    int last = arr[n-1];
+    for(int i = n-1; i > 0; i--) {
+        swap(arr[i], arr[i-1]);
     }
+    arr[0] = last;
 }
