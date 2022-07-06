@@ -17,7 +17,7 @@ class Solution{
         vector <long long> v(n);
         for(int i = 0; i < n; i++) v[i] = arr[i];
         //sort(v.begin(), v.end());
-        for(int i = 0, j = n-1, id = 0; i <= j; i++, j--) {
+        for(int i = 0, j = n-1, id = 0; id < n; i++, j--) {
             arr[id++] = v[j];
             arr[id++] = v[i];
         }
