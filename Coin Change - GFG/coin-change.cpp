@@ -6,26 +6,20 @@ using namespace std;
 class Solution {
   public:
   
-  long long int dp[1005][1005];
-  bool flag = true;
+    long long int dp[1005][1005];
   
     long long coinChange(int S[], int len, int amount, int pos) {
         if(amount == 0) return 1;
-        
         if(pos >= len) return 0;
         
         long long &ret = dp[amount][pos];
-        if(ret != -1) {
-            return ret;
-        }
+        if(ret != -1) return ret;
         
         ret = 0;
         if(amount - S[pos] >= 0) {
             ret += coinChange(S, len, amount - S[pos], pos);
         }
-        
-        ret += coinChange(S, len, amount, pos + 1);
-        
+        ret += coinChange(S, len, amount, pos+1);
         return ret;
     }
   
