@@ -5,8 +5,7 @@ public:
         if(pos >= len) return 0;
         int &ret = dp[pos];
         if(~ret) return ret;
-        ret = min(rec(cost, pos + 1), rec(cost, pos + 2)) + cost[pos];
-        return ret;
+        return ret = min(rec(cost, pos + 1), rec(cost, pos + 2)) + cost[pos];
     }
     
     int minCostClimbingStairs(vector<int>& cost) {
