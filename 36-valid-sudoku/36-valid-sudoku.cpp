@@ -3,25 +3,22 @@ public:
     
     bool invalid1D(vector<char> &b) {
         unordered_set <char> St;
-        for(auto c: b) {
+        for(auto c: b)
             if(c != '.') {
                 if(St.find(c) != St.end()) return true;
                 St.insert(c);
             }
-        }
         return false;
     }
     
     bool invalid2D(vector<vector<char>>& b) {
         unordered_set <char> St;
-        for(auto r: b) {
-            for(auto c: r) {
+        for(auto r: b)
+            for(auto c: r) 
                 if(c != '.') {
                     if(St.find(c) != St.end()) return true;
                     St.insert(c);
                 }
-            }
-        }
         return false;
     }
     
