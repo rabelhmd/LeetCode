@@ -23,11 +23,9 @@ public:
     }
     
     vector<vector<char>> genGrid(int iStart, int iEnd, int jStart, int jEnd, vector<vector<char>>& board) {
-        vector<vector<char>> grid;
-        for(int i = iStart; i < iEnd; i++) {
-            vector <char> v;
-            for(int j = jStart; j < jEnd; j++) v.push_back(board[i][j]);
-            grid.push_back(v);
+        vector<vector<char>> grid(3);
+        for(int i = iStart, pos = 0; i < iEnd; i++, pos += 1) {
+            for(int j = jStart; j < jEnd; j++) grid[pos].push_back(board[i][j]);
         }
         return grid;
     }
