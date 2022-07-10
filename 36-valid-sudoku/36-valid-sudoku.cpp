@@ -2,8 +2,7 @@ class Solution {
 public:
     
     bool invalid1D(vector<char> &b) {
-        int counter = 0;
-        set <char> St;
+        unordered_set <char> St;
         for(auto c: b) {
             if(c != '.') {
                 if(St.find(c) != St.end()) return true;
@@ -14,8 +13,7 @@ public:
     }
     
     bool invalid2D(vector<vector<char>>& b) {
-        int counter = 0;
-        set <char> St;
+        unordered_set <char> St;
         for(auto r: b) {
             for(auto c: r) {
                 if(c != '.') {
@@ -54,7 +52,6 @@ public:
                 if(invalid2D(g)) return false;
             }
         }
-        
         return true;
     }
 };
