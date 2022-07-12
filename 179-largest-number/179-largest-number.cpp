@@ -17,7 +17,7 @@ public:
         getString(nums, v, res);
         
         int id = 0, len = res.size();
-        while(id < len && res[id] == '0') id += 1;
+        for(; id < len && res[id] != '0'; id++)
         
         for(; id < len; id++) ans += res[id];
         return ans.size() == 0 ? to_string(nums[0]) : ans;
