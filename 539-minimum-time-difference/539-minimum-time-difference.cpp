@@ -20,8 +20,7 @@ public:
         
         int len = timePoints.size(), mn = INT_MAX;
         for(int i = 1; i < len; i++) mn = min(mn, mins[i] - mins[i-1]);
-        mn = min(mn, 1440-(mins[len-1] - mins[0]));
-
-        return mn;
+        
+        return min(mn, 1440-(mins[len-1] - mins[0]));
     }
 };
