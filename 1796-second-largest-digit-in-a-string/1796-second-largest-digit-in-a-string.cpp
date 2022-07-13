@@ -7,10 +7,10 @@ public:
         if(res == "") return -1;
         
         sort(res.rbegin(), res.rend());
-        int len = res.size(), id = 0;
-        while(id < len && res[id] == res[0]) id += 1;
-        
-        if(id < len) return res[id] - '0';
+        int len = res.size(), id = 1;
+        for(; id < len; id++) {
+            if(res[id] != res[0]) return res[id] - '0';
+        }
         
         return -1;
     }
