@@ -8,7 +8,7 @@ public:
                 res.pop_back();
                 continue;
             }
-            res.push_back(c);
+            res += c;
         }
         
         return res;
