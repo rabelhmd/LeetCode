@@ -8,8 +8,7 @@ public:
         
         sort(res.rbegin(), res.rend());
         int len = res.size(), id = 0;
-        char cur = res[0];
-        while(id < len && res[id] == cur) id += 1;
+        while(id < len && res[id] == res[0]) id += 1;
         
         if(id < len) return res[id] - '0';
         
