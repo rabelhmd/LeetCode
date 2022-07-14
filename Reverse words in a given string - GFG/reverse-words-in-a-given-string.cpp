@@ -24,12 +24,11 @@ class Solution
             if(str != "") v.push_back(str);
         }
         
-        reverse(v.begin(), v.end());
         len = v.size();
         string str;
-        for(int i = 0; i < len; i++) {
+        for(int i = len-1; i >= 0; i--) {
             str += v[i];
-            if(i < len-1) {
+            if(i > 0) {
                 str += '.';
             }
         }
