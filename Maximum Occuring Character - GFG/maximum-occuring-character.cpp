@@ -17,9 +17,7 @@ class Solution
         int mx = -1;
         for(auto c: str) {
             Mp[c] += 1;
-            if(Mp[c] > mx) {
-                mx = Mp[c];
-            }
+            mx = max(mx, Mp[c]);
         }
         
         for(auto mp: Mp) {
