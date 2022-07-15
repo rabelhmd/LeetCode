@@ -3,14 +3,17 @@ public:
     int minDeletionSize(vector<string>& strs) {
         int len = strs.size(), count = 0;
         
+        bool flag = false;
+        
         for(int i = 0; i < strs[0].size(); i++) {
-            string a, b;
-            for(int j = 0; j < len; j++) {
-                a += strs[j][i];
+            flag = false;
+            for(int j = 1; j < len; j++) {
+                if(strs[j][i] < strs[j-1][i]) {
+                    flag = true;
+                    break;
+                }
             }
-            b = a;
-            sort(a.begin(), a.end());
-            count += (a != b);
+            count += (flag);
         }
         
         return count;
