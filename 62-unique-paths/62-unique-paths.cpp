@@ -4,8 +4,9 @@ public:
     int dp[101][101];
     
     int track(int x, int y, int& row, int& col) {
-        if(x == row || y == col) return 0;
-        if(x == row-1 && y == col-1) return 1;
+        if(x > row || y > col) return 0;
+        
+        if(x == row && y == col) return 1;
         
         int &ret = dp[x][y];
         if(~ret) return ret;
@@ -16,6 +17,7 @@ public:
     
     int uniquePaths(int r, int c) {
         memset(dp, -1, sizeof(dp));
+        r--, c--;
         return track(0, 0, r, c);
     }
 };
