@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> generate(int rows) {
+        
         vector<vector<int>>ans(rows);
         for(int i = 0; i < rows; i++) {
             ans[i].push_back(1);
