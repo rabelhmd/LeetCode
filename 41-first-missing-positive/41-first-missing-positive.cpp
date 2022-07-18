@@ -1,12 +1,11 @@
 class Solution {
 public:
+    int Mp[5*(int)1e5 + 5];
+    
     int firstMissingPositive(vector<int>& nums) {
-        unordered_set <int> St;
-        for(auto x: nums) St.insert(x);
         int len = nums.size();
-        for(int i = 1; i <= len; i++) {
-            if(St.find(i) == St.end()) return i;
-        }
-        return len + 1;
+        for(auto x: nums) if(x > 0 && x <= len) Mp[x] = 1;
+        for(int i = 1; i <= len; i++) if(!Mp[i]) return i;
+        return len+1;
     }
 };
