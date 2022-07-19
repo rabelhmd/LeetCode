@@ -12,22 +12,16 @@
 class Solution {
 public:
     
-    void build(TreeNode* root, int level, vector<vector<int>>& res) {
+    void build(TreeNode* root, vector<int>& res) {
         if(!root) return;
-        if(level == res.size()) res.push_back({});
-        
-        res[level].push_back(root->val);
-        build(root->left, level + 1, res);
-        build(root->right, level + 1, res);
+        res.push_back(root->val);
+        build(root->left, res);
+        build(root->right, res);
     }
     
     int kthSmallest(TreeNode* root, int k) {
-        vector<vector<int>> res;
-        build(root, 0, res);
         vector<int> v;
-        for(auto vec: res) {
-            for(auto x: vec) v.push_back(x);
-        }
+        build(root, v);
         sort(v.begin(), v.end());
         return v[k-1];
     }
