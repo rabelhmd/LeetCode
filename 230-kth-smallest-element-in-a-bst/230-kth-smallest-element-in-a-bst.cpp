@@ -20,9 +20,9 @@ public:
     }
     
     int kthSmallest(TreeNode* root, int k) {
-        vector<int> v;
-        build(root, v);
-        sort(v.begin(), v.end());
-        return v[k-1];
+        vector<int> res;
+        build(root, res);
+        sort(res.begin(), res.end());
+        return res[k-1];
     }
 };
