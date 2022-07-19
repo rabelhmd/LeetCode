@@ -23,9 +23,9 @@ public:
         vector <int> res;
         build(root, res);
         sort(res.begin(), res.end());
-        int sc = -1, id = 0, len = res.size();
+        int id = 0, len = res.size();
         while(id < len && res[id] == res[0]) id += 1;
         if(id < len) return res[id];
-        return sc;
+        return -1;
     }
 };
