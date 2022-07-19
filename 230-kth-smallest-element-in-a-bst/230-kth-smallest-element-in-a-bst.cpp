@@ -11,17 +11,16 @@
  */
 class Solution {
 public:
-    
-    void build(TreeNode* root, vector<int>& res) {
+    vector<int> res;
+    void build(TreeNode* root) {
         if(!root) return;
         res.push_back(root->val);
-        build(root->left, res);
-        build(root->right, res);
+        build(root->left);
+        build(root->right);
     }
     
     int kthSmallest(TreeNode* root, int k) {
-        vector<int> res;
-        build(root, res);
+        build(root);
         sort(res.begin(), res.end());
         return res[k-1];
     }
