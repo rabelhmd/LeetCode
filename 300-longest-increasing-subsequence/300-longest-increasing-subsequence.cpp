@@ -10,7 +10,9 @@ public:
             St.insert(x);
             it = St.lower_bound(x);
             it ++;
-            if(it != St.end()) St.erase(it);
+            if(it != St.end()) {
+                St.erase(it);
+            }
         }
         return St.size();
     }
