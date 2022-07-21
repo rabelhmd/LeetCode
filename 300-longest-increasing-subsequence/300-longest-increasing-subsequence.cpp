@@ -8,12 +8,10 @@ public:
         
         int &ret = dp[cur][last];
         if(ret != -1) return ret;
-        ret=0;
-        if(v[cur] > v[last]) {
-            ret = 1 + LIS(v, cur + 1, cur);
-        }
-        
         ret = max(ret, LIS(v, cur + 1, last));
+        if(v[cur] > v[last]) {
+            ret = max(ret, 1 + LIS(v, cur + 1, cur));
+        }
         return ret;
     }
     
