@@ -3,7 +3,6 @@ public:
     
     int len, maxLen = 0;
     string res;
-    
     void palindromeLen(string &s, int x, int y) {
         if(y >= len) return;
         while(x >= 0 && y < len && s[x] == s[y]) x--, y++;
