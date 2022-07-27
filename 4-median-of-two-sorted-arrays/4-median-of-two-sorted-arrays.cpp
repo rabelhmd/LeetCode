@@ -7,10 +7,8 @@ public:
         if(len == 1) return nums1[0];
         if(len % 2 == 0) {
             len /= 2;
-            double x = nums1[len-1] + nums1[len];
-            return x/2.0;
+            return (double) (nums1[len-1] + nums1[len]) / 2.0;
         } 
-        double x = nums1[len/2];
-        return x;
+        return (double) (nums1[len/2]);
     }
 };
