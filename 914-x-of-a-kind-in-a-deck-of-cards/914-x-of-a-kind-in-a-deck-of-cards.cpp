@@ -1,5 +1,11 @@
 class Solution {
 public:
+    
+    int GCD(int x, int y) {
+        if(y != 0) return GCD(y, x % y);
+        return x;
+    }
+    
     bool hasGroupsSizeX(vector<int>& deck) {
         unordered_map<int, int> Mp;
         for(auto x: deck) {
@@ -8,7 +14,7 @@ public:
         
         int mx = 0;
         for(auto mp: Mp) {
-           mx = __gcd(mx, mp.second); 
+           mx = GCD(mx, mp.second); 
         }
         return mx >= 2;
     }
