@@ -1,9 +1,9 @@
 class Solution {
 public:
-    
     bool isAnagram(string s, string t) {
-        sort(s.begin(), s.end());
-        sort(t.begin(), t.end());
-        return s == t;
+        unordered_map<char, int> Mp1, Mp2;
+        for(auto x: s) Mp1[x] += 1;
+        for(auto x: t) Mp2[x] += 1;
+        return Mp1 == Mp2;
     }
 };
