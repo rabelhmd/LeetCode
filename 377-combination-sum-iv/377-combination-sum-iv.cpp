@@ -10,7 +10,7 @@ public:
         int &ret = dp[t];
         if(~ret) return ret;
         ret = 0;
-        for(int i = 0; i< len; i++) {
+        for(int i = 0; i < len; i++) {
             int coin = coins[i];
             int baki = t - coin;
             if(baki < 0) continue;
@@ -20,7 +20,7 @@ public:
     }
 
     int combinationSum4(vector<int>& nums, int target) {
-       memset(dp, -1, sizeof(dp));
+        memset(dp, -1, sizeof(dp));
         len = nums.size();
         return rec(target, nums);
     }
