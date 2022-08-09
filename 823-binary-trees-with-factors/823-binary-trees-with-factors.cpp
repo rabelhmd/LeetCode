@@ -12,10 +12,12 @@ public:
             cur = 1;
             for (int j = 0; j < i; ++j) {
                 if (A[i] % A[j] == 0) {
-                    cur = (cur + dp[A[j]] * dp[A[i] / A[j]]) % MOD;
+                    cur += (dp[A[j]] * dp[A[i] / A[j]]);
+                    cur %= MOD;
                 }
             }
-            ans = (ans + cur) % MOD;
+            ans += cur;
+            ans %= MOD;
         }
         return ans;
     }
