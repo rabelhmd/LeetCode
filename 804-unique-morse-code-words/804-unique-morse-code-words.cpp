@@ -4,7 +4,7 @@ public:
     string strs[26] = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
     
     int uniqueMorseRepresentations(vector<string>& words) {
-        set<string> St;
+        unordered_set<string> St;
         for(auto w: words) {
             string str;
             for(auto ch: w) {
