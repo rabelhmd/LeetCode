@@ -13,9 +13,7 @@ public:
             }
             
             if(pq.empty()) return -1;
-            int dist = pq.top();
-            pq.pop();
-            cur += dist;
+            cur += pq.top(); pq.pop();
             count++;
         }
         return count;
