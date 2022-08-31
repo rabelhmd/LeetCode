@@ -12,19 +12,19 @@ public:
         }
         
         flag[x][y] = true;
-        pair<bool, bool> pr = {0, 0};
+        bool f = false, s = false;
         for(int i = 0; i < 4; i++) {
             int r = x + dx[i];
             int c = y + dy[i];
 
             if(r < 0 || c < 0 || r >= row || c >= col || (H[r][c] <= H[x][y] && flag[r][c] ==false)) {
                 pair<int, int> cur = dfs(r, c, H);
-                pr.first |= cur.first;
-                pr.second |= cur.second;
+                f |= cur.first;
+                s |= cur.second;
             }
         }
         
-        return {pr.first, pr.second};
+        return {f, s};
     }
     
     vector<vector<int>> pacificAtlantic(vector<vector<int>>& heights) {
