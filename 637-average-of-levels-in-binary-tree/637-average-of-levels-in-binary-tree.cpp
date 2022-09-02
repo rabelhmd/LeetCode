@@ -12,24 +12,26 @@
 class Solution {
 public:
     
-    void build(TreeNode* root, int level, vector<vector<double>>& cur) {
+    void build(TreeNode* root, int level, vector <vector<double>>& cur) {
         if(!root) return;
         if(level == cur.size()) cur.push_back({});
         
         cur[level].push_back(root -> val);
-        build(root -> left, level + 1, cur);
-        build(root -> right, level + 1, cur);
+        build(root->left, level + 1, cur);
+        build(root->right, level + 1, cur);
     }
     
     vector<double> averageOfLevels(TreeNode* root) {
-        vector<double> res;
-        vector<vector<double>> cur;
+        vector <double> res;
+        vector <vector<double>> cur;
         build(root, 0, cur);
         
-        for(auto v: cur) {
-            double sum = 0;
-            for(auto x: v) sum += x;
-            res.push_back(sum / v.size());
+        for(auto &level: cur) {
+            double sum = 0.0;
+            for(auto &x: level) {
+                sum += x;
+            }
+            res.push_back(sum/level.size());
         }
         return res;
     }
