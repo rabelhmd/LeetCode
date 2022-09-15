@@ -10,8 +10,7 @@ public:
         for(auto &x: changed) {
             if(Mp[x] <= 0) continue;
             if(Mp[x*2] <= 0) return {};
-            Mp[x] -= 1;
-            Mp[x*2] -= 1;
+            Mp[x] -= 1; Mp[x*2] -= 1;
             res.push_back(x);
         }
         return res;
