@@ -16,7 +16,8 @@ public:
         if(root -> val == t && !root -> left && !root -> right) {
             return true;
         }
-        return hasPathSum(root->left, t - root -> val) || 
-            hasPathSum(root->right, t - root -> val);
+        int cur = t - root -> val;
+        return hasPathSum(root->left, cur) || 
+            hasPathSum(root->right, cur);
     }
 };
