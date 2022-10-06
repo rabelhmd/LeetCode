@@ -2,18 +2,18 @@ class Solution {
 public:
     
     bool canFinish(int n, vector<vector<int>>& info) {
-        vector <vector<int>> adj(n, vector<int>());
+        vector <vector <int>> adj(n, vector <int> ());
         vector <int> degree(n, 0);
-        for(auto &x: info) {
-            int niteChai = x[1];
-            int lagbe = x[0];
-            adj[niteChai].push_back(lagbe);
-            degree[lagbe] += 1;
+        for(auto &pr: info) {
+            adj[pr[1]].push_back(pr[0]);
+            degree[pr[0]] += 1;
         }
         
-        queue<int> q;
+        queue <int> q;
         for(int i = 0; i < n; i++) {
-            if(degree[i] == 0) q.push(i);
+            if(degree[i] == 0) {
+                q.push(i);
+            }
         }
         
         while(!q.empty()) {
@@ -23,6 +23,7 @@ public:
                 if(degree[v] == 0) q.push(v);
             }
         }
+        
         return n == 0;
     }
 };
