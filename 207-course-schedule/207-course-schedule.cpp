@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    bool isPossible(int n, vector <pair<int, int>> P) {
+    bool topSort(int n, vector <pair<int, int>> P) {
         vector<vector<int>> adj(n);
         vector<int> degree(n);
         for(auto &x: P) {
@@ -16,13 +16,12 @@ public:
         
         while(!q.empty()) {
             int u = q.front(); q.pop();
-            n -= 1;
+            n--;
             for(auto v: adj[u]) {
-                degree[v] -= 1;
+                degree[v]--;
                 if(degree[v] == 0) q.push(v);
             }
         }
-    
         return n == 0;
     }
     
@@ -31,6 +30,6 @@ public:
         for(auto &x: pre) {
             _p.push_back({x[0], x[1]});
         }
-        return isPossible(numCourses, _p);
+        return topSort(numCourses, _p);
     }
 };
