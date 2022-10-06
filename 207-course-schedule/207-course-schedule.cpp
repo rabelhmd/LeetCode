@@ -1,12 +1,12 @@
 class Solution {
 public:
     
-    bool topSort(int n, vector <pair<int, int>> P) {
-        vector<vector<int>> adj(n);
-        vector<int> degree(n);
-        for(auto &x: P) {
-            adj[x.second].push_back(x.first);
-            degree[x.first] += 1;
+    bool topSort(int n, vector<vector<int>>& pre) {
+        vector<vector<int>> adj(n, vector <int>());
+        vector<int> degree(n, 0);
+        for(auto &x: pre) {
+            adj[x[1]].push_back(x[0]);
+            degree[x[0]] += 1;
         }
     
         queue<int> q;
@@ -26,10 +26,6 @@ public:
     }
     
     bool canFinish(int numCourses, vector<vector<int>>& pre) {
-        vector <pair<int, int>> _p;
-        for(auto &x: pre) {
-            _p.push_back({x[0], x[1]});
-        }
-        return topSort(numCourses, _p);
+        return topSort(numCourses, pre);
     }
 };
