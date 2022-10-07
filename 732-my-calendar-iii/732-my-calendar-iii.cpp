@@ -2,15 +2,7 @@ class MyCalendarThree {
 public:
     map <int, int> Mp;
     int mx = 0;
-    
-    void reset() {
-        Mp.clear();
-        mx = 0;
-    }
-    
-    MyCalendarThree() {
-        reset();
-    }
+    MyCalendarThree() {}
     
     int book(int start, int end) {
         Mp[start] += 1; Mp[end] -= 1;
