@@ -9,12 +9,9 @@ public:
             int j = i + 1, k = len-1;
             while(j < k) {
                 int cur = nums[i] + nums[j] + nums[k];
-                if(abs(cur - target) < abs(ret - target)) {
-                    ret = cur;
-                }
+                if(abs(cur - target) < abs(ret - target)) ret = cur;
                 if(cur < target) {
-                    j += 1;
-                    continue;
+                    j += 1; continue;
                 }
                 k -= 1;
             }
