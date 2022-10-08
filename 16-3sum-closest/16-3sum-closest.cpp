@@ -12,9 +12,11 @@ public:
                 if(abs(cur - target) < abs(ret - target)) {
                     ret = cur;
                 }
-                bool f = cur < target;
-                j += (f ? 1 : 0);
-                k -= (!f ? 1 : 0);
+                if(cur < target) {
+                    j += 1;
+                    continue;
+                }
+                k -= 1;
             }
         }
         return ret;
