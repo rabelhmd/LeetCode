@@ -11,16 +11,13 @@
  */
 class Solution {
 public:
-    
-    unordered_map <int, bool> Mp;
-    bool build(TreeNode* root, int target) {
+    unordered_map <int, int> Mp;
+    bool findTarget(TreeNode* root, int k) {
         if(!root) return false;
-        if(Mp[target - root->val]) return true;
-        Mp[root->val] = true;
-        return build(root-> left, target) || build(root-> right, target);
-    }
-    
-    bool findTarget(TreeNode* root, int target) {
-        return build(root, target);
+        if(Mp.find(k - root-> val) != Mp.end()) {
+            return true;
+        }
+        Mp[root->val] = root->val;
+        return findTarget(root->left, k) || findTarget(root->right, k);
     }
 };
