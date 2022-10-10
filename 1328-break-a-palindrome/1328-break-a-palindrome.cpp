@@ -1,17 +1,15 @@
 class Solution {
 public:
-    string breakPalindrome(string P) {
-        if(P.size() == 1) return "";
-        for(int i = 0; i < P.size(); i++) {
-            if(i == (P.size() / 2)) {
-                continue;
-            }
-            if(P[i] != 'a') {
-                P[i] = 'a';
-                return P;
+    string breakPalindrome(string str) {
+        int len = str.size();
+        if(len <= 1) return "";
+        for(int i = 0; i < len/2; i++) {
+            if(str[i] != 'a') {
+                str[i] = 'a';
+                return str;
             }
         }
-        P[P.size()-1] = 'b';
-        return P;
+        str[len-1] = 'b';
+        return str;
     }
 };
