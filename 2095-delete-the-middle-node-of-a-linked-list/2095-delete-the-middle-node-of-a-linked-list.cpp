@@ -23,7 +23,6 @@ public:
     ListNode* deleteMiddle(ListNode* head) {
         if(!head) return head;
         if(!head -> next) {
-            //delete head;
             return NULL;
         }
         
