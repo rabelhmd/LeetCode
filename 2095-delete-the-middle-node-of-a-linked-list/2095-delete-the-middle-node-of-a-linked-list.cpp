@@ -22,11 +22,9 @@ public:
     
     ListNode* deleteMiddle(ListNode* head) {
         if(!head) return head;
-        if(!head -> next) {
-            return NULL;
-        }
+        if(!head -> next) return NULL;
         
-        struct ListNode* temp = head;
+        ListNode* temp = head;
         int mid = countNodes(head) / 2;
         while(mid-- > 1) {
             head = head -> next;
