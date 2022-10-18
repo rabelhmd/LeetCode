@@ -1,28 +1,24 @@
 class Solution {
 public:
     
-    int visit[5005];
-    vector <int> graph[5005];
-    
     bool canFinish(int n, vector<vector<int>>& info) {
+        vector <vector<int>> graph(n, vector<int>());
+        vector <int> visit(n, 0);
         for(auto &pr: info) {
-            int x = pr[0], y = pr[1];
-            graph[y].push_back(x);
-            visit[x] += 1;
+            graph[pr[1]].push_back(pr[0]);
+            visit[pr[0]] += 1;
         }
         
         queue<int> q;
-        for(int i = 0; i < n; i++) if(visit[i] == 0) q.push(i);
+        for(int i = 0; i < n; i++) if(!visit[i]) q.push(i);
         
-        while(q.empty() == false) {
-            int x = q.front(); q.pop();
-            n -= 1;
-            for(auto &v: graph[x]) {
-                visit[v] -= 1;
-                if(visit[v] == 0) q.push(v);
+        while(!q.empty()) {
+            int x = q.front(); q.pop(); n-= 1;
+            for(auto &y: graph[x]) {
+                visit[y] -= 1;
+                if(!visit[y]) q.push(y);
             }
         }
-        
         return n == 0;
     }
 };
