@@ -1,10 +1,8 @@
 class Solution {
 public:
     bool isSubsequence(string s, string t) {
-        int f = 0;
-        for(auto &x: t) {
-            if(x == s[f]) f += 1;
-        }
-        return f == s.size();
+        int id = 0;
+        for(auto &x: t) id += s[id] == x;
+        return id == s.size();
     }
 };
