@@ -1,16 +1,17 @@
 class Solution {
 public:
     vector<int> findErrorNums(vector<int>& nums) {
-        unordered_map <int, int> Mp;
-        for(auto &x: nums) {
-            Mp[x] += 1;
+        int len = nums.size();
+        for(int i = 0; i < len; i++) {
+            while(nums[i] != nums[nums[i]-1]) {
+                swap(nums[i], nums[nums[i]-1]);
+            }
         }
         
-        int d = -1, id = -1;
-        for(int i = 1; i <= nums.size(); i++) {
-            if(Mp[i] == 2) d = i;
-            if(Mp[i] == 0) id = i;
-            if(d != -1 && id != -1) return {d, id};
+        for(int i = 0; i < len; i++) {
+            if(nums[i] != i+1) {
+                return {nums[i], i + 1};
+            }
         }
         return {0, 0};
     }
