@@ -6,7 +6,7 @@ public:
         map <int, int> Mp;
         for(int i = 0; i < len; i++) {
             sum = (sum + nums[i]) % k;
-            if(Mp.find(sum) != Mp.end()) return true;
+            if(Mp[sum]) return true;
             Mp[temp] += 1;
             temp = sum;
         }
