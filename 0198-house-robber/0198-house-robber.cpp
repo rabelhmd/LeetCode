@@ -7,6 +7,8 @@ public:
         
         int &ret = dp[pos];
         if(~ret) return ret;
-        return ret = max(nums[pos] + rob(nums, pos + 2), rob(nums, pos + 1));
+        int step1 = rob(nums, pos + 1);
+        int step2 = rob(nums, pos + 2);
+        return ret = max(step1, nums[pos] + step2);
     }
 };
