@@ -1,15 +1,7 @@
 class Solution {
 public:
-    int dp[1005][1005];
+    int dp[1005][1005] = {-1};
     string t1, t2;
-    void reset() {
-        for(int i = 0; i < 1005; i++) {
-            for(int j = 0; j < 1005; j++) {
-                dp[i][j] = -1;
-            }
-        }
-    }
-    
     int LCS(int i, int j) {
         if(i >= t1.size() || j >= t2.size()) return 0;
         int &ret = dp[i][j];
@@ -19,7 +11,7 @@ public:
     }
     
     int longestCommonSubsequence(string text1, string text2) {
-        reset();
+        memset(dp, -1, sizeof(dp)); 
         t1 = text1, t2 = text2;
         return LCS(0, 0);
     }
