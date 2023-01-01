@@ -10,7 +10,7 @@ public:
             char ch = pattern[id++];
             if(Mp1[ch] != Mp2[w]) return false;
             Mp1[ch] = hash;
-            Mp2[w] = hash++;
+            Mp2[w] = hash; hash += 1;
         }
         return id == len;
     }
