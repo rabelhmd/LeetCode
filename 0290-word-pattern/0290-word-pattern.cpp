@@ -4,7 +4,7 @@ public:
         map <char, char> Mp1;
         map <string, char> Mp2;
         istringstream ss(s);
-        string w; int id = 0; 
+        string w; int id = 0, len = pattern.size(); 
         char hash = 'a';
         while(ss >> w) {
             char ch = pattern[id++];
@@ -12,6 +12,6 @@ public:
             Mp1[ch] = hash;
             Mp2[w] = hash++;
         }
-        return id == pattern.size();
+        return id == len;
     }
 };
