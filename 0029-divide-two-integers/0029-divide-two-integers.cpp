@@ -4,7 +4,6 @@ public:
     
     int divide(int dividend, int divisor) {
         long long div = (long long) dividend/divisor;
-        if(div > mx) div = mx;
-        return div;
+        return div > mx ? mx : div;
     }
 };
