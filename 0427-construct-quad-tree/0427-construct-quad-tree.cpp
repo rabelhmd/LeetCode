@@ -40,21 +40,25 @@ public:
 
 class Solution {
 public:
-    Node* build(vector<vector<int>>& grid, int x1, int y1, int x2, int y2) {
-        if (x1 >= x2 || y1 >= y2) return nullptr;
-        
-        int val = grid[x1][y1];
+    
+    bool isLeaf(vector<vector<int>>& grid, int& val, int& x1, int& x2, int& y1, int& y2) {
         bool isLeaf = true;
         for (int i = x1; i < x2; i++) {
             for (int j = y1; j < y2; j++) {
                 if (grid[i][j] != val) {
-                    isLeaf = false;
-                    break;
+                    return isLeaf = false;
                 }
             }
-            if (!isLeaf) break;
         }
-        if (isLeaf) return new Node(val, true);
+        return isLeaf;
+    }
+    
+    Node* build(vector<vector<int>>& grid, int x1, int y1, int x2, int y2) {
+        if (x1 >= x2 || y1 >= y2) return nullptr;
+        
+        int val = grid[x1][y1];
+        bool _isLeaf = isLeaf(grid, val, x1, x2, y1, y2);
+        if (_isLeaf) return new Node(val, true);
         
         int x = (x1 + x2) / 2, y = (y1 + y2) / 2;
         Node* topLeft = build(grid, x1, y1, x, y);
