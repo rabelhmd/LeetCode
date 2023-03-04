@@ -5,9 +5,10 @@ public:
         
         long long ret = 0;
         for(int i = 0; i < len; i++) {
-            if(nums[i] >= minK and nums[i] <= maxK) {
-                if(nums[i] == minK) flagMin = i;
-                if(nums[i] == maxK) flagMax = i;
+            int& x = nums[i];
+            if(x >= minK and x <= maxK) {
+                if(x == minK) flagMin = i;
+                if(x == maxK) flagMax = i;
                 ret += max(0, min(flagMin, flagMax) - bound);
                 continue;
             }
