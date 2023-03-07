@@ -7,8 +7,10 @@ public:
         while (left < right) {
             long long mid = left + (right - left) / 2, trips = 0;
             for (int t : time) trips += mid / t;
-            if (trips >= totalTrips) right = mid;
-            else left = mid + 1;
+            if (trips >= totalTrips) {
+                right = mid; continue;
+            }
+            left = mid + 1;
         }
         return left;
     }
