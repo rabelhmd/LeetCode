@@ -1,11 +1,15 @@
 class Solution {
 public:
-    bool canEatAll(const vector<int>& piles, int h, int k) {
-        int hours = 0;
+    
+   bool canEatAll(const vector<int>& piles, int h, int k) {
+       int hours = 0;
         for (int bananas : piles) {
             hours += (bananas + k - 1) / k;
+            if (hours > h) {
+                return false;
+            }
         }
-        return hours <= h;
+        return true;
     }
     
     int minEatingSpeed(vector<int>& piles, int h) {
