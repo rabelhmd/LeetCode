@@ -12,9 +12,6 @@ public:
             }
         }
         
-        if(k <= id) {
-            return dp[k-1];
-        }
-        return "";
+        return (k <= id) ? dp[k-1] : "";
     }
 };
