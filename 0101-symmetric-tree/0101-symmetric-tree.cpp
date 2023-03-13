@@ -14,9 +14,7 @@ public:
     bool build(TreeNode* left, TreeNode* right) {
         if(!left or !right) return left == right;
         if(left -> val != right -> val) return false;
-        bool l = build(left -> left, right -> right);
-        bool r = build(left -> right, right -> left);
-        return l and r;
+        return build(left -> left, right -> right) && build(left -> right, right -> left);
     }
 
     bool isSymmetric(TreeNode* root) {
