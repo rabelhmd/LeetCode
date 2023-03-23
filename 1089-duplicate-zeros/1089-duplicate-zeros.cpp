@@ -1,11 +1,14 @@
 class Solution {
 public:
     void duplicateZeros(vector<int>& arr) {
-        vector <int> v; for(auto&x: arr) {
-            if(v.size() >= arr.size()) break;
+        int len = arr.size();
+        
+        vector <int> v;
+        for(auto&x: arr) {
+            if(v.size() >= len) break;
             if(!x) {
                 v.push_back(0);
-                if(v.size() >= arr.size()) break;
+                if(v.size() >= len) break;
                 v.push_back(0);
             }
             else v.push_back(x);
