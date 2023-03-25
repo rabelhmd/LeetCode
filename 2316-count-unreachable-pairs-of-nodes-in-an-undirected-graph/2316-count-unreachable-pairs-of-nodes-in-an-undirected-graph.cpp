@@ -25,7 +25,7 @@ public:
             if(visit[i]) continue;
             count = 0;
             dfs(adj, i, visit, count);
-            ret += ((long)sum*(long)count);
+            ret += (1ll * sum*count);
             sum += count;
         }
         return ret;
