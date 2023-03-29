@@ -7,7 +7,6 @@ public:
         int len = sum.size();
         for(int i = 1; i < len; i++) {
             sum[i] += sum[i-1];
-            cout << sum[i] << endl;
         }
         
         int ret = 0, cur = 0;
