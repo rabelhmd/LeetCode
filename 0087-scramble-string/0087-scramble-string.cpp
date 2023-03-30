@@ -12,14 +12,10 @@ public:
         if(Mp.find(key) != Mp.end()) return Mp[key];
         
         for(int i = 0; i < len-1; i++) {
-            bool isSc1 = isScramble(s1.substr(0, i+1), s2.substr(0, i+1))
-            && isScramble(s1.substr(i+1), s2.substr(i+1));
-            
-            if(isSc1) return true;
-            
-            isSc1 = isScramble(s1.substr(0, i + 1), s2.substr(s2.size() - i - 1))
-            && isScramble(s1.substr(i + 1), s2.substr(0, s2.size() - i - 1));
-            if(isSc1) return true;
+            bool isSc1 = isScramble(s1.substr(0, i+1), s2.substr(0, i+1));
+            if(isSc1 && isScramble(s1.substr(i+1), s2.substr(i+1))) return true;
+            isSc1 = isScramble(s1.substr(0, i + 1), s2.substr(s2.size() - i - 1));
+            if(isSc1 && isScramble(s1.substr(i + 1), s2.substr(0, s2.size() - i - 1))) return true;
         }
         return Mp[key] = false;
     }
