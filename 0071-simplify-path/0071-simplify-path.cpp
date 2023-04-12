@@ -16,7 +16,7 @@ public:
         }
         
         string ret = "/";
-        for(auto &x: v) ret += (x + "/");
+        for(auto &x: v) ret += x + "/";
         if(ret.back() == '/' && ret.size() > 1) ret.pop_back();
         return ret;
     }
