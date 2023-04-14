@@ -4,15 +4,15 @@ public:
         string ret;
         int len = command.size();
         
-        for(int i = 0; i < len; i++) {
+        for(int i = 0; i < len;) {
             if(command[i] == 'G') {
-                ret += 'G';
+                ret += 'G'; i += 1;
             }
             else if(command[i] == '(' and command[i+1] == ')') {
-                ret += 'o';
+                ret += 'o'; i += 2;
             }
             else if(command[i] == '(' and command[i+1] == 'a') {
-                ret += "al";
+                ret += "al"; i += 4;
             }
         }
         return ret;
