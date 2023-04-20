@@ -11,29 +11,23 @@
  */
 class Solution {
 public:
- int widthOfBinaryTree(TreeNode* root) {
-        if(root == NULL) return 0;
-     
-        int maxWidth = 0;
-        queue<pair<TreeNode*, long>> q;
-        q.push({root, 1});
-     
-        while(!q.empty()) {
-            int levelSize = q.size();
-            int startPosition = q.front().second;
-            int endPosition = q.back().second;
-            
-            maxWidth = max(maxWidth, endPosition - startPosition + 1);
-            for(int i = 0; i < levelSize; ++i) {
-                pair<TreeNode*,int> p = q.front();
-                q.pop();
-                TreeNode* node = p.first;
-                int position = p.second;
-                long offsettedPosition = position - startPosition; 
-                if(node->left) q.push({node->left, 2*offsettedPosition});
-                if(node->right) q.push({node->right, 2*offsettedPosition+1});   
-            }
+    int ret;
+    void dfs(TreeNode* root, long position, int depth, vector<int>& levelLefts) {
+        if(depth >= levelLefts.size()) {
+            levelLefts.push_back(position);
         }
-        return maxWidth;
+        ret = max(ret, (int) position - levelLefts[depth] + 1);
+        if(root->left) {
+            dfs(root->left,  2*(position - levelLefts[depth]), depth + 1, levelLefts);
+        }
+        if(root->right) {
+            dfs(root->right, 2*(position - levelLefts[depth]) + 1, depth + 1, levelLefts);
+        }
+    }
+    
+    int widthOfBinaryTree(TreeNode* root) {
+        vector<int> levelLefts;
+        dfs(root, 1, 0, levelLefts);
+        return ret;
     }
 };
