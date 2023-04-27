@@ -12,8 +12,8 @@ public:
         string ret;
         for(int i = 0; i < s.size(); i++) {
             if (i < s.size() - 2 && s[i + 2] == '#') {
-                string str = s.substr(i, 2); i += 2;
-                ret += Mp[str];
+                ret += Mp[s.substr(i, 2)];
+                i += 2;
             } else {
                 ret += Mp[to_string(s[i] - '0')];
             }
