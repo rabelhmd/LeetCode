@@ -2,12 +2,12 @@ class Solution {
 public:
     unordered_map <string, char> Mp;
     void doMap() {
-        for(int i = 1, a = 'a'; i <= 9; i++) {
-            Mp[to_string(i)] = a++;
-        }
-        
-        for(int i = 10, a = 'j'; i <= 26; i++) {
-            Mp[to_string(i) + "#"] = a++;
+        for(int i = 1, a = 'a'; i <= 26; i++, a++) {
+            if(i < 10) {
+                Mp[to_string(i)] = a;
+            } else {
+                Mp[to_string(i) + "#"] = a;
+            }
         }
     }
     
