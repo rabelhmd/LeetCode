@@ -10,10 +10,9 @@ public:
             Mp[v[0]] += v[1];
         }
         
-        vector<vector<int>> ret(Mp.size());
-        int id = 0;
+        vector<vector<int>> ret;
         for(auto mp: Mp) {
-            ret[id++] = {mp.first, mp.second};
+            ret.push_back({mp.first, mp.second});
         }
         return ret;
     }
