@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maxVowels(string s, int k) {
-        unordered_set <char> St = {'a', 'e', 'i', 'o', 'u'};
+        set <char> St = {'a', 'e', 'i', 'o', 'u'};
         int ret = 0, cur = 0, len = s.size();
         
         for(int i = 0; i < len; i++) {
