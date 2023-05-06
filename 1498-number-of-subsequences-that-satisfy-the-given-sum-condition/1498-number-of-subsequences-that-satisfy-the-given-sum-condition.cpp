@@ -11,9 +11,7 @@ public:
         sort(nums.begin(), nums.end());
         while(l <= r) {
             if(nums[l] + nums[r] > target) r -= 1;
-            else {
-                ret = (ret + pows[r-l++]) % mod;
-            }
+            else ret = (ret + pows[r-l++]) % mod;
         }
         return ret;
     }
