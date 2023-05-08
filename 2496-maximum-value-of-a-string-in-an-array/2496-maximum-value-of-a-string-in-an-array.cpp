@@ -8,7 +8,12 @@ public:
     int maximumValue(vector<string>& strs) {
         int ret = 0;
         for(auto &str: strs) {
-            int x = isOnlyDigit(str) ? stoi(str) : str.size();
+            int x;
+            if(isOnlyDigit(str)) {
+                x = stoi(str);
+            } else {
+               x = str.size();
+            }
             ret = max(ret, x);
         }
         return ret;
