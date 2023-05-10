@@ -1,8 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> generateMatrix(int n) {
-        int col = n, row = n;
-        int left = 0, right = col-1, top = 0, bottom = row-1;
+        int left = 0, right = n-1, top = 0, bottom = n-1;
         int dir = 0, count = 1;
         vector<vector<int>> mat(n , vector<int> (n, 0));
         while(left <= right and top <= bottom) {
