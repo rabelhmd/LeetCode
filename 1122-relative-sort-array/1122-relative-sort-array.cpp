@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int dp[10000] = {};
+    int dp[1001] = {};
     vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
         for(auto &x: arr1) dp[x] += 1;
         
