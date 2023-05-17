@@ -1,7 +1,7 @@
 class Solution {
 public:
-    vector<int> convert(vector<int>& nums) {
-        int mx = nums[0], len = nums.size();
+    vector<int> convert(int& len, vector<int>& nums) {
+        int mx = nums[0];
         
         vector<int> ret(len);
         ret[0] = mx;
@@ -12,9 +12,7 @@ public:
         return ret;
     }
     
-    vector<long long> prefix(vector<int>& nums) {
-        int len = nums.size();
-        
+    vector<long long> prefix(int &len, vector<int>& nums) {        
         vector<long long> ret(len);
         long long sum = nums[0];
         for (int i = 0; i < len; i++) {
@@ -25,7 +23,8 @@ public:
     }
     
     vector<long long> findPrefixScore(vector<int>& nums) {
-        vector <int> v = convert(nums);
-        return prefix(v);
+        int n = nums.size();
+        vector <int> v = convert(n, nums);
+        return prefix(n, v);
     }
 };
