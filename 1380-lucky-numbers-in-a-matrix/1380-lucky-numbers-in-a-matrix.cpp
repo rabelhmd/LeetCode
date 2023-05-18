@@ -1,3 +1,9 @@
+int init = [] {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr); cout.tie(nullptr);
+    return 0;
+}();
+
 class Solution {
 public:
     vector<int> luckyNumbers (vector<vector<int>>& mat) {
