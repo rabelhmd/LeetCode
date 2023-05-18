@@ -1,14 +1,14 @@
-int init = [] {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr); cout.tie(nullptr);
-    return 0;
-}();
-
 class Solution {
 public:
+    void faster() {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cin.tie(0);
+        cout.tie(0);
+    }
     vector<int> luckyNumbers (vector<vector<int>>& mat) {
+        faster();
         int m = mat.size(), n = mat[0].size();
-        
         int mx = -1, mn = 1e5+1;
         for(int i = 0; i < m; i++) {
             int mn = INT_MAX;
