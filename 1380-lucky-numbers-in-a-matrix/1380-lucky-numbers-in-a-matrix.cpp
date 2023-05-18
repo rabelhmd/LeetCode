@@ -22,7 +22,7 @@ public:
             mn = min(mn, mx);
         }
         
-        if(mx != mn) return {};
-        return {mx};
+        if (mx != mn) return vector<int> {};
+        return vector<int> {mx};
     }
 };
