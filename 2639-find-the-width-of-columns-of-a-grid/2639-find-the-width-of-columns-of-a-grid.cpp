@@ -1,8 +1,15 @@
 class Solution {
 public:
+    void faster() {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cin.tie(0);
+        cout.tie(0);
+    }
+    
     vector<int> findColumnWidth(vector<vector<int>>& grid) {
-        int r = grid.size(), c = grid[0].size();
-        
+        faster();
+        int r = grid.size(), c = grid[0].size(); 
         vector <int> ret;
         for(int i = 0; i < c; i++) {
             int mx = 0;
