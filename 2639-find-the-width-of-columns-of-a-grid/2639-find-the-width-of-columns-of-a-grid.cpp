@@ -8,7 +8,7 @@ class Solution {
 public:
     vector<int> findColumnWidth(vector<vector<int>>& grid) {
         int r = grid.size(), c = grid[0].size(); 
-        vector <int> ret;
+        vector <int> ret(c);
         for(int i = 0; i < c; i++) {
             int mx = 0;
             for(int j = 0; j < r; j++) {
@@ -19,7 +19,7 @@ public:
                 }
                 mx = max(mx, count);
             }
-            ret.push_back(mx);
+            ret[i] = mx;
         }
         return ret;
     }
