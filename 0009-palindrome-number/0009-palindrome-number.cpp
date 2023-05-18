@@ -10,8 +10,7 @@ public:
     bool isPalindrome(int x) {
         faster();
         if(x < 0 || (x % 10 == 0 && x != 0)) return false;
-        long long rev = 0;
-        int temp = x;
+        long rev = 0, temp = x;
         while(temp) {
             rev = rev * 10 + (temp%10);
             temp /= 10;
