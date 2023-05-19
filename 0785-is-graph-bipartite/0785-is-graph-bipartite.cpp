@@ -15,10 +15,8 @@ public:
                 if (colors[e] == -1) {
                     colors[e] = 1 - colors[cur];
                     q.push(e);
-                    continue;
                 }
-                
-                if (colors[e] == colors[cur]) {
+                else if (colors[e] == colors[cur]) {
                     return false;
                 }
             }
