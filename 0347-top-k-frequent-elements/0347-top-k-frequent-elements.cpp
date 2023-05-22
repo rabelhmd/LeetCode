@@ -5,15 +5,30 @@ public:
         cin.tie(nullptr); cout.tie(nullptr);
     }
     
+    bool static cmp(pair<int, int> p, pair<int, int> q) {
+        return p.second > q.second;
+    }
+    
     vector<int> topKFrequent(vector<int>& nums, int k) {
         faster();
-        unordered_map <int, int> Mp; for(auto &x: nums) Mp[x] += 1;
+        sort(nums.begin(), nums.end());
+        int count = 1, len = nums.size();
+        vector <pair<int, int>> Mp;
         
-        priority_queue <pair<int, int>> pq;
-        for(auto &mp: Mp) pq.push({mp.second, mp.first});
+        for(int i = 1; i < len; i++) {
+            if(nums[i] == nums[i-1]) {
+                count += 1;
+                continue;
+            }
+            Mp.push_back({nums[i-1], count});
+            count = 1;
+        }
         
-        vector<int> ret; while(k-- > 0 and !pq.empty()) {
-            ret.push_back(pq.top().second); pq.pop();
+        Mp.push_back(make_pair(nums[len-1], count));
+        sort(Mp.begin(), Mp.end(), cmp);
+        
+        vector <int> ret; for(int i = 0; i < k; i++) {
+            ret.push_back(Mp[i].first);
         }
         return ret;
     }
