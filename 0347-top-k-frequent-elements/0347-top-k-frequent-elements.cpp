@@ -12,7 +12,7 @@ public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
         faster();
         unordered_map <int, int> Mp;
-        for(auto &x: nums) Mp[x] += 1;
+        for(int &x: nums) Mp[x] += 1;
         
         vector <pair<int, int>> freq;
         for(auto &mp: Mp) freq.push_back({mp.first, mp.second});
