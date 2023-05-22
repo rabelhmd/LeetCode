@@ -24,7 +24,7 @@ public:
             count = 1;
         }
         
-        Mp.push_back(make_pair(nums[len-1], count));
+        Mp.push_back({nums[len-1], count});
         sort(Mp.begin(), Mp.end(), cmp);
         
         vector <int> ret; for(int i = 0; i < k; i++) {
