@@ -15,7 +15,7 @@ public:
         for(int &x: nums) Mp[x] += 1;
         
         vector <pair<int, int>> freq;
-        for(auto &mp: Mp) freq.push_back({mp.first, mp.second});
+        for(auto &mp: Mp) freq.push_back(make_pair(mp.first, mp.second));
         sort(freq.begin(), freq.end(), cmp);
         
         vector <int> ret(k);
