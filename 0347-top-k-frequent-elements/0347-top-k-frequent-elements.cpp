@@ -18,9 +18,9 @@ public:
         for(auto &mp: Mp) freq.push_back({mp.first, mp.second});
         sort(freq.begin(), freq.end(), cmp);
         
-        vector <int> ret;
+        vector <int> ret(k);
         for(int i = 0; i < k; i++) {
-            ret.push_back(freq[i].first);
+            ret[i] = freq[i].first;
         }
         return ret;
     }
