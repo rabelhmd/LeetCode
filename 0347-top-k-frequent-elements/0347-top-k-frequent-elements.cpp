@@ -5,29 +5,21 @@ public:
         cin.tie(nullptr); cout.tie(nullptr);
     }
     
-    bool static cmp(pair<int, int> p, pair<int, int> q) {
+    bool static cmp(pair<int, int> &p, pair<int, int> &q) {
         return p.second > q.second;
     }
     
     vector<int> topKFrequent(vector<int>& nums, int k) {
         faster();
-        sort(nums.begin(), nums.end());
-        int count = 1, len = nums.size();
-        vector <pair<int, int>> Mp;
+        unordered_map <int, int> Mp;
+        for(auto &x: nums) Mp[x] += 1;
         
-        for(int i = 1; i < len; i++) {
-            if(nums[i] == nums[i-1]) {
-                count += 1;
-            } else {
-                Mp.push_back({nums[i-1], count});
-                count = 1;
-            }
-        }
-        Mp.push_back({nums[len-1], count});
-        sort(Mp.begin(), Mp.end(), cmp);
+        vector <pair<int, int>> freq;
+        for(auto &mp: Mp) freq.push_back({mp.first, mp.second});
+        sort(freq.begin(), freq.end(), cmp);
         
         vector <int> ret; for(int i = 0; i < k; i++) {
-            ret.push_back(Mp[i].first);
+            ret.push_back(freq[i].first);
         }
         return ret;
     }
