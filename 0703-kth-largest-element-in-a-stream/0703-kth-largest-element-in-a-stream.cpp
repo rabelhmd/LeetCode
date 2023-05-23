@@ -1,22 +1,24 @@
 class KthLargest {
 public:
-    multiset <int> St;
+    priority_queue<int> pq;
     int k;
     void faster() {
         ios_base::sync_with_stdio(false);
         cin.tie(nullptr); cout.tie(nullptr);
     }
+    
     KthLargest(int k, vector<int>& nums) {
         faster();
-        this->k = k;
-        for(auto &x: nums) St.insert(x);
+        this-> k = k;
+        for(auto &x: nums) {
+            add(x);
+        }
     }
     
     int add(int val) {
-        St.insert(val);
-        auto it = St.begin();
-        for(int i = 0; i < St.size() - k; i++) it ++;
-        return *it;
+        pq.push(-val);
+        if(pq.size() > k) pq.pop();
+        return -pq.top();
     }
 };
 
