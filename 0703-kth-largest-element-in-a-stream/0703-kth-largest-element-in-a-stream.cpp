@@ -10,9 +10,7 @@ public:
     KthLargest(int k, vector<int>& nums) {
         faster();
         this-> k = k;
-        for(auto &x: nums) {
-            add(x);
-        }
+        for(auto &x: nums) add(x);
     }
     
     int add(int val) {
