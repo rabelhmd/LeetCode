@@ -1,7 +1,12 @@
 class Solution {
 public:
+    void faster() {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr); cout.tie(nullptr);
+    }
     
     long long maxScore(vector<int>& nums1, vector<int>& nums2, int k) {
+        faster();
         int len = nums1.size();
         priority_queue <int> pq;
         vector <pair<int, int>> v; for(int i = 0; i < len; i++) {
