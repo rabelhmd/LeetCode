@@ -14,7 +14,10 @@ public:
     }
     
     bool addCar(int type) {
-        if(Mp[type]-- > 0) return true;
+        if(Mp[type]) {
+            Mp[type] -= 1;
+            return true;
+        }
         return false;
     }
 };
