@@ -24,8 +24,7 @@ public:
                 if(fr -> right) q.push(fr -> right);
             }
             level += 1;
-            if(cur > sum) ret = level;
-            sum = max(sum, cur);
+            if(cur > sum) sum = cur, ret = level;
         }
         return ret;
     }
