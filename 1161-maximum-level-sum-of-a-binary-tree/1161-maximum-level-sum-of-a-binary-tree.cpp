@@ -11,23 +11,21 @@
  */
 class Solution {
 public:
-    void dfs(TreeNode* root, map <int, int>& Mp, int level) {
-        if(!root) return;
-        Mp[++level] += root -> val;
-        dfs(root -> left, Mp, level);
-        dfs(root -> right, Mp, level);
-    }
-    
     int maxLevelSum(TreeNode* root) {
-        map <int, int> Mp; int level = 0, mx = INT_MIN;
-        dfs(root, Mp, level);
-        level = 0;
-        for(auto& it: Mp) {
-            if(it.second > mx) {
-                mx = it.second;
-                level = it.first;
+        if(!root) return 0;
+        int ret = 0, mx = INT_MIN, level = 0;
+        queue <TreeNode*> q; q.push(root);
+        while(!q.empty()) {
+            int len = q.size(), cur = 0;
+            while(len--) {
+                auto fr = q.front(); q.pop();
+                cur += fr -> val;
+                if(fr -> left) q.push(fr -> left);
+                if(fr -> right) q.push(fr -> right);
             }
+            level += 1;
+            if(cur > mx) mx = cur, ret = level;
         }
-        return level;
+        return ret;
     }
 };
