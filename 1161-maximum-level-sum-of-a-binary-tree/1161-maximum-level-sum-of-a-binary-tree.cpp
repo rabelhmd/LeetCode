@@ -13,7 +13,7 @@ class Solution {
 public:
     int maxLevelSum(TreeNode* root) {
         if(!root) return 0;
-        int ret = 0, sum = INT_MIN, level = 0;
+        int ret = 0, mx = INT_MIN, level = 0;
         queue <TreeNode*> q; q.push(root);
         while(!q.empty()) {
             int len = q.size(), cur = 0;
@@ -24,7 +24,7 @@ public:
                 if(fr -> right) q.push(fr -> right);
             }
             level += 1;
-            if(cur > sum) sum = cur, ret = level;
+            if(cur > mx) mx = cur, ret = level;
         }
         return ret;
     }
