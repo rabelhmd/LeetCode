@@ -13,9 +13,7 @@ class Solution {
 public:
     void dfs(TreeNode* root, map <int, int>& Mp, int level) {
         if(!root) return;
-        level += 1;
-        if(Mp.count(level) == 0) Mp[level] = root -> val;
-        else Mp[level] += root -> val;
+        Mp[++level] += root -> val;
         dfs(root -> left, Mp, level);
         dfs(root -> right, Mp, level);
     }
