@@ -7,7 +7,7 @@ public:
             return diff == 0 ? 0 : INT_MIN;
         }
         int &ret = dp[pos][diff + offset];
-        if (ret != -1) return ret;
+        if(~ret) return ret;
         int a = solve(pos + 1 , diff, rods, n);
         int b = rods[pos] + solve(pos + 1 , diff + rods[pos], rods, n);
         int c = solve(pos + 1 , diff - rods[pos], rods, n);
