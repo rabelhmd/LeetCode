@@ -4,8 +4,7 @@ public:
     int dp[21][2 * offset + 1];
     int solve(int pos, int diff, vector<int>& rods, int n) {
         if (pos == n) {
-            if (diff == 0) return 0;
-            return INT_MIN;
+            return diff == 0 ? 0 : INT_MIN;
         }
         int &ret = dp[pos][diff + offset];
         if (ret != -1) return ret;
