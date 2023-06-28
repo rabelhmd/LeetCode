@@ -13,7 +13,7 @@ public:
         for(int i = 0; i < len; i++) {
             for(int j = i + 1; j < len; j++) {
                 int a = nums[i], b = nums[j];
-                if(__gcd(f(a), l(b)) == 1) ret += 1;
+                ret += __gcd(f(a), l(b)) == 1;
             }
         }
         return ret;
