@@ -3,9 +3,10 @@ public:
     bool buddyStrings(string s, string g) {
         int lens = s.size(), leng = g.size(); if(lens != leng) return false;
         
-        vector <int> dif; set <char> St;
+        vector <int> dif; unordered_set <char> St;
         for(int i = 0; i < lens; i++) {
             if(s[i] != g[i]) dif.push_back(i);
+            if(dif.size() > 2) return false;
             St.insert(s[i]);
         }
         
