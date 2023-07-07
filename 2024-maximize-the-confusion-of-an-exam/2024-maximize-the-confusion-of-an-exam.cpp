@@ -5,7 +5,7 @@ public:
         for(int i = 0; i < size; i++) {
             if(str[i] == ch) count += 1;
             while(count > k) {
-                if(str[left]== ch)count -= 1;
+                if(str[left] == ch) count -= 1;
                 left++;
             }
             ret = max(ret, i - left + 1);
