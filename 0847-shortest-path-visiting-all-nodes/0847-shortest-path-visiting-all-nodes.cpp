@@ -3,15 +3,16 @@ public:
     
     int dp[12][4096] = {};
     int dfs(vector<vector<int>>& graph, int& len, int visited, int i, int count) {
-        int res = len * 2;   
-        if (dp[i][visited] > 0) return dp[i][visited] - 1;
+        int res = len * 2;
+        int& f = dp[i][visited];
+        if (f > 0) return f - 1;
         if ((visited & (1 << i)) == 0) ++count;
         if (count == len) return 0;        
-        if (dp[i][visited] != -1) {
-            dp[i][visited] = -1;
+        if (~f) {
+            f = -1;
             for (auto j : graph[i])
                 res = min(res, 1 + dfs(graph, len, visited | (1 << i), j, count));
-            dp[i][visited] = res + 1;
+            f = res + 1;
         }
         return res;
     }
