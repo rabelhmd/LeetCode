@@ -6,7 +6,7 @@ public:
         int ret = 0;
         for(auto &[key, val]: Mp) {
             if(val == 1) return -1;
-            ret += (val / 3) + (val % 3 != 0 ? 1 : 0);
+            ret += (val / 3) + (val % 3 != 0);
         }
         return ret;
     }
