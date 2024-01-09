@@ -11,20 +11,17 @@
  */
 class Solution {
 public:
-
-    void rec(TreeNode* root, vector <int>& ret) {
+    void getLeafs(TreeNode* root, vector <int> & ret) {
         if(!root) return;
-        if(!root -> left && !root -> right) {
-            ret.push_back(root -> val);
-        }
-        rec(root -> left, ret);
-        rec(root -> right, ret);
+        if(!root -> left and !root -> right) ret.push_back(root -> val);
+        getLeafs(root -> left, ret);
+        getLeafs(root -> right, ret);
     }
-
+    
     bool leafSimilar(TreeNode* root1, TreeNode* root2) {
-        vector <int> leafs1, leafs2;
-        rec(root1, leafs1);
-        rec(root2, leafs2);
-        return leafs1 == leafs2;
+        vector <int> l1, l2;
+        getLeafs(root1, l1);
+        getLeafs(root2, l2);
+        return l1 == l2;
     }
 };
