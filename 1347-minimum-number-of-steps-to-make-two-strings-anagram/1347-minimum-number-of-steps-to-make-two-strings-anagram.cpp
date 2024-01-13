@@ -6,7 +6,7 @@ public:
         for(auto &x: t) tMp[x] += 1;
         int ret = 0;
         for(char x = 'a'; x <= 'z'; x++) {
-            ret += abs(sMp[x] - tMp[x]);
+            ret += max(sMp[x] - tMp[x], tMp[x] - sMp[x]);
         }
         return ret / 2;
     }
