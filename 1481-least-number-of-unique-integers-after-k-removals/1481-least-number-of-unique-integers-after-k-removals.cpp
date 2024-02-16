@@ -3,13 +3,14 @@ public:
     int findLeastNumOfUniqueInts(vector<int>& arr, int k) {
         unordered_map <int, int> Mp;
         for(auto &x: arr) Mp[x] += 1;
-        priority_queue<int> pq;
-        for(auto &[k, v]: Mp) pq.push(-v);
-        while(k > 0) {
-            int t = (-1) * pq.top();
-            k -= t;
-            if(k >= 0) pq.pop();
+        vector <int> v;
+        for(auto &[k, x]: Mp) v.push_back(x);
+        sort(v.begin(), v.end());
+        int t = 0;
+        for(int i = 0; i < v.size(); i++) {
+            k -= v[i];
+            if(k >= 0) t++;
         }
-        return pq.size();
+        return v.size()-t;
     }
 };
