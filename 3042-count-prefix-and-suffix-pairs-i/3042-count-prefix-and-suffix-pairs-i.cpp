@@ -1,10 +1,18 @@
 class Solution {
 public:
-    bool isPS(const std::string& str1, const std::string& str2) {
-        if(str1 == str2) return true;
-        int len1 = str1.length(), len2 = str2.length();
-        if (len1 >= len2) return false;
-        return str1 == str2.substr(0, len1) and str1 == str2.substr(len2 - len1);
+    
+    bool isPrefix(const std::string& str1, const std::string& str2) {
+        if (str1.size() > str2.size()) return false;
+        return str2.substr(0, str1.size()) == str1;
+    }
+    
+    bool isSuffix(const std::string& str1, const std::string& str2) {
+        if (str1.size() > str2.size()) return false;
+        return str2.substr(str2.size() - str1.size()) == str1;
+    }
+    
+    bool check(const std::string& str1, const std::string& str2) {
+        return isPrefix(str1, str2) and isSuffix(str1, str2);
     }
 
 
@@ -14,7 +22,7 @@ public:
             string str1 = words[i]; 
             for(int j = i+1; j < len; j++) {
                 string str2 = words[j];
-                ret += isPS(str1, str2);
+                ret += check(str1, str2);
             }
         }
         return ret;
