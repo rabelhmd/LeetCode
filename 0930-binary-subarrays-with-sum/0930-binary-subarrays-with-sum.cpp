@@ -7,7 +7,8 @@ public:
         int ret = 0;
         for (int &num: nums) {
             sum += num;
-            if (Mp.find(sum - goal) != Mp.end()) ret += Mp[sum - goal];
+            int x = sum - goal;
+            if (Mp.find(x) != Mp.end()) ret += Mp[x];
             Mp[sum]++;
         }
         return ret;
