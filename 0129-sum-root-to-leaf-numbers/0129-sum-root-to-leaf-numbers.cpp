@@ -11,21 +11,21 @@
  */
 class Solution {
 public:
+    
     void solve(TreeNode* root, int& sum, string& str) {
         if(!root) return;
         str += to_string(root -> val);
-        if(!root -> left and !root -> right) {
-            sum += stoi(str);
-        } else {
+        if(!root -> left and !root -> right) sum += stoi(str);
+        else {
             solve(root -> left, sum, str);
             solve(root -> right, sum, str);
         }
         str.pop_back();
     }
-    
+
     int sumNumbers(TreeNode* root) {
-        string str; int sum = 0;
-        solve(root, sum, str);
-        return sum;
+        string str; int ret = 0;
+        solve(root, ret, str);
+        return ret;
     }
 };
