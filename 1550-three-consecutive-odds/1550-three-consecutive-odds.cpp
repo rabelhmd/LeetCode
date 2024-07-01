@@ -1,16 +1,10 @@
 class Solution {
 public:
-    bool isOdd(int x) {
-        return x&1;
-    }
     
     bool threeConsecutiveOdds(vector<int>& arr) {
-        int count = 0;
-        for(int i = 0; i < arr.size(); i++) {
-            if(isOdd(arr[i])) count += 1;
-            else count = 0;
-            if(count == 3) return true;
-        }
-        return false;
+        int odds = 0;
+        for (auto i = 0; i < arr.size() && odds < 3; ++i)
+            odds = arr[i] % 2 ? odds + 1 : 0;
+        return odds == 3;
     }
 };
