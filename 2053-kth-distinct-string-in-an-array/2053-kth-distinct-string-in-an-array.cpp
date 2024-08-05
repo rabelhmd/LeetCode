@@ -7,8 +7,6 @@ public:
         string dp[arr.size()];
         int id = 0;
         for(auto &x: arr) if(Mp[x] == 1) dp[id++] = x;
-        
-        // for(auto d: dp) cout << d << " "; 
         if(id >= k) return dp[k-1];
         return "";
     }
